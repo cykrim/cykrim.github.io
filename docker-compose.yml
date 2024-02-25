@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 127.0.0.1:3000:3000
+      - 127.0.0.1:3001:3001
+    volumes:
+      - .:/app/src
+    container_name: site
+    stdin_open: true 
+    tty: true  
+    #command: yarn dev
+      
