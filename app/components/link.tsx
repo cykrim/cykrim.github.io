@@ -11,14 +11,45 @@ interface Props {
 const TooltipComponent = ({ url,text,descr } : Props) => {
   const [isTooltipVisible, setTooltipVisible] = useState(false);
 
-  if (descr==="") {
-    <Link
+  if (descr === "") {
+    return (
+      <Link
+        href={url}
+        className="text-sm duration-500 text-zinc-500 hover:text-zinc-300 relative z-10">
+        {text}
+      </Link>
+    );
+  }
+
+  const renderLink = () => {
+    if (text === "console") {
+
+      return (
+        <a
+          href={url}
+          className="text-sm duration-500 text-zinc-500 hover:text-zinc-300 relative z-10"
+          onMouseEnter={() => setTooltipVisible(true)}
+          onMouseLeave={() => setTooltipVisible(false)}
+        >
+          {text}
+        </a>
+      )
+    }else{
+
+      return (
+        <Link
         href={url}
         className="text-sm duration-500 text-zinc-500 hover:text-zinc-300 relative z-10"
+        onMouseEnter={() => setTooltipVisible(true)}
+        onMouseLeave={() => setTooltipVisible(false)}
       >
         {text}
-    </Link>
+      </Link>
+
+      )
+    }
   }
+
   return (
     <div className="relative">
       <div
@@ -28,17 +59,9 @@ const TooltipComponent = ({ url,text,descr } : Props) => {
       >
         <p className="text-xs">{descr}</p>
       </div>
-      <Link
-        href={url}
-        className="text-sm duration-500 text-zinc-500 hover:text-zinc-300 relative z-10"
-        onMouseEnter={() => setTooltipVisible(true)}
-        onMouseLeave={() => setTooltipVisible(false)}
-      >
-        {text}
-      </Link>
+      {renderLink()}
     </div>
   );
-
 };
 
 export default TooltipComponent;

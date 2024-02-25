@@ -4,7 +4,7 @@ import TooltipComponent from "./components/link";
 const navigation = [
   { name: "whoami", href: "/whoami", descr: ""},
   { name: "projects", href: "/projects", descr: "An overview to my projects."},
-  { name: "console", href: "/terminal/", descr: "A peek into my world."},
+  { name: "console", href: "https://cykrim.github.io/terminal/", descr: "A peek into my world."},
   { name: "contact", href: "/contact", descr: ""},
 ];
 
