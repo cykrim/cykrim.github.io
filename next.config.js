@@ -1,5 +1,5 @@
-import { withContentlayer } from "next-contentlayer";
-
+//import { withContentlayer } from "next-contentlayer";
+const { withContentlayer } = require("next-contentlayer");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
@@ -16,7 +16,7 @@ const nextConfig = {
 		}
 		return config;
 	  },
-	//images: { unoptimized: true },
 };
 
-export default withContentlayer(nextConfig);
+//export default withContentlayer(nextConfig);
+module.exports = withContentlayer(nextConfig);
